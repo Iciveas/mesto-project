@@ -1,13 +1,8 @@
 .page {
-  width: 1280px;
-  height: 1217px;
+  max-width: 1280px;
   background-color: #000;
   padding: 45px 200px 60px;
   box-sizing: border-box;
   margin: 0 auto;
   font-family: Inter, 'Arial', sans-serif;
-}
-
-@media all and (max-width: 1279) {
-  
 }

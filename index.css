@@ -7,21 +7,19 @@
 @import url(blocks/user-panel/user-panel.css);
 @import url(blocks/user-panel/__profile/user-panel__profile.css);
 @import url(blocks/user-photo/user-photo.css);
-@import url(blocks/user-info-text-container/user-info-text-container.css);
 @import url(blocks/user-name/user-name.css);
 @import url(blocks/user-signature/user-signature.css);
+@import url(blocks/user-panel/__editBtn/user-panel__editBtn.css);
 @import url(blocks/user-panel/__addPostBtn/user-panel__addPostBtn.css);
-@import url(blocks/user-panel/__addPostIcon/user-panel__addPostIcon.css);
 @import url(blocks/posts-gallery/posts-gallery.css);
 @import url(blocks/posts-gallery/__item/posts-gallery__item.css);
 @import url(blocks/posts-gallery/__item-photo/posts-gallery__item-photo.css);
 @import url(blocks/posts-gallery/__item-panel/posts-gallery__item-panel.css);
 @import url(blocks/posts-gallery/__item-heading/posts-gallery__item-heading.css);
 @import url(blocks/posts-gallery/__likeBtn/posts-gallery__likeBtn.css);
-@import url(blocks/posts-gallery/__likeIcon/posts-gallery__likeIcon.css);
 @import url(blocks/footer/footer.css);
 @import url(blocks/footer/__text/footer__text.css);
-
+@import url(blocks/edit-view/edit-view.css);
 @import url(blocks/edit-user-profile-form/edit-user-profile-form.css);
 @import url(blocks/edit-user-profile-form/__header/edit-user-profile-form__header.css);
 @import url(blocks/edit-user-profile-form/__input/edit-user-profile-form__input.css);
