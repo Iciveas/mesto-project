@@ -1,0 +1,12 @@
+.edit-user-profile-form__input {
+  width: 358px;
+  border: none;
+  border-bottom: 1px rgba(0, 0, 0, 0.2) solid;
+  margin: 30px 0 0;
+  padding-bottom: 13px;
+  box-sizing: border-box;
+  line-height: 17px;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: 'Inter', 'Arial', sans-serif;
+}

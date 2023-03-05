@@ -1,0 +1,11 @@
+.edit-user-profile-form__saveBtn {
+  background-color: #000;
+  color: #fff;
+  width: 358px;
+  height: 50px;
+  border: none;
+  margin-top: 48px;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: normal;
+}

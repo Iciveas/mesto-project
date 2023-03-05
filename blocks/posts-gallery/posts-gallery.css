@@ -1,0 +1,8 @@
+.posts-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  width: 880px;
+  min-height: 744px;
+  gap: 17px;
+}

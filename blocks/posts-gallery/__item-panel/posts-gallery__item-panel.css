@@ -1,0 +1,8 @@
+.posts-gallery__item-panel {
+  display: flex;
+  flex-direction: row;
+  width: 246px;
+  height: 23px;
+  margin: 25px 0 0 21px;
+  justify-content: space-between;
+}

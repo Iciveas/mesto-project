@@ -1,0 +1,9 @@
+.user-panel__addPostBtn {
+  border: 0;
+  margin: 39px 0 0;
+  padding: 0;
+  background-color: #000;
+  width: 150px;
+  height: 50px;
+  justify-self: end;
+}
