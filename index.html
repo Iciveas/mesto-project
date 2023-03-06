@@ -19,14 +19,14 @@
   <main class="content">
     <div class="user-panel">
       <div class="user-panel__profile">
-        <img class="user-photo" src="src/images/user-photo.jpeg" alt="аватар пользователя">
-        <div class="user-info-text-container">
-          <p class="user-name">Жак-Ив Кусто
+        <img class="user-panel__user-photo" src="src/images/user-photo.jpeg" alt="аватар пользователя">
+        <div class="user-panel-text-container">
+          <p class="user-panel__user-name">Жак-Ив Кусто
             <button class="user-panel__editBtn">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#fff" d="M.5.5h23v23H.5z"/><path fill="#fff" d="m17 8.328-7.396 7.439-1.321-1.348L15.66 7 17 8.328ZM7 17l1.962-.588-1.377-1.328L7 17Z"/></svg>
             </button>
           </p>
-          <p class="user-signature">Исследователь океана</p>
+          <p class="user-panel__user-signature">Исследователь океана</p>
         </div>
         
 
@@ -36,7 +36,7 @@
       </button>
     </div>
 
-    <section class="posts-gallery">
+    <section class="posts-gallery" aria-label="Галерея">
       <div class="posts-gallery__item">
         <img src="src/images/photo-karachaevsk.png" alt="фото Карачаевска">
         <div class="posts-gallery__item-panel">
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class="posts-gallery__item" aria-label="Галерея">
+      <div class="posts-gallery__item">
         <img class="posts-gallery__item-photo" src="src/images/photo-elbrus.png" alt="фото горы Эльбрус">
         <div class="posts-gallery__item-panel">
           <p class="posts-gallery__item-heading">Гора Эльбрус</p>
@@ -99,7 +99,7 @@
     <p class="footer__text">&#169; 2020 Mesto Russia</p>
   </footer>
 
-  <div class="edit-view">
+  <div class="popup popup_opened">
     <form class="edit-user-profile-form">
       <button class="edit-user-profile-form__closeBtn">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none"><path fill="#fff" d="M32 28.8 19.2 16 32 3.2 28.8 0 16 12.8 3.2 0 0 3.2 12.8 16 0 28.8 3.2 32 16 19.2 28.8 32l3.2-3.2Z"/></svg>

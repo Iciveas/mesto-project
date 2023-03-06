@@ -1,4 +1,4 @@
-.user-name {
+.user-panel__user-name {
   color: #fff;
   font-weight: 500;
   font-size: 42px;
@@ -12,7 +12,7 @@
 }
 
 @media all and (max-width: 1023px) {
-  .user-name {
+  .user-panel__user-name {
     font-weight: 500;
     font-size: 27px;
     line-height: 33px;
@@ -23,7 +23,7 @@
 
 
 @media all and (max-width: 320px) {
-  .user-name {
+  .user-panel__user-name {
     min-height: 26px;
     gap: 10px;
     padding-left: 65px;

@@ -1,4 +1,4 @@
-.user-photo {
+.user-panel__user-photo {
   border-radius: 50%;
   width: 120px;
   margin-right: 26.25px;
@@ -6,7 +6,7 @@
 
 
 @media all and (max-width: 767px) {
-  .user-photo {
+  .user-panel__user-photo {
     margin: 0 auto;
     padding: 3.75px;
   }
