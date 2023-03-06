@@ -1,8 +1,24 @@
 .user-panel__editBtn {
   border: 0;
-  margin: 37px 0 0 18px;
+  margin: 0;
   padding: 0;
   background-color: #000;
   width: 24px;
   height: 24px;
+}
+
+.user-panel__editBtn:hover {
+  opacity: .6;
+}
+
+@media all and (max-width: 1023px) {
+  .user-panel__editBtn {
+    margin-top: 5px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .user-panel__editBtn {
+    transform: scale(0.75);
+  }
 }

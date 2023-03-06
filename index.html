@@ -21,16 +21,18 @@
       <div class="user-panel__profile">
         <img class="user-photo" src="src/images/user-photo.jpeg" alt="аватар пользователя">
         <div class="user-info-text-container">
-          <p class="user-name">Жак-Ив Кусто</p>
+          <p class="user-name">Жак-Ив Кусто
+            <button class="user-panel__editBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#fff" d="M.5.5h23v23H.5z"/><path fill="#fff" d="m17 8.328-7.396 7.439-1.321-1.348L15.66 7 17 8.328ZM7 17l1.962-.588-1.377-1.328L7 17Z"/></svg>
+            </button>
+          </p>
           <p class="user-signature">Исследователь океана</p>
         </div>
-        <button class="user-panel__editBtn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#fff" d="M.5.5h23v23H.5z"/><path fill="#fff" d="m17 8.328-7.396 7.439-1.321-1.348L15.66 7 17 8.328ZM7 17l1.962-.588-1.377-1.328L7 17Z"/></svg>
-        </button>
+        
 
       </div>
       <button class="user-panel__addPostBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="50" fill="none"><rect width="148" height="48" x="1" y="1" stroke="#fff" stroke-width="2" rx="1"/><path fill="#fff" d="M86 23.778h-9.778V14h-2.444v9.778H64v2.444h9.778V36h2.444v-9.778H86v-2.444Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="user-panel__addPostIcon" width="16" height="16" fill="none"><path fill="#fff" d="M16 7.111H8.889V0H7.11v7.111H0V8.89h7.111V16H8.89V8.889H16V7.11Z"/></svg>
       </button>
     </div>
 
@@ -45,7 +47,7 @@
         </div>
       </div>
 
-      <div class="posts-gallery__item">
+      <div class="posts-gallery__item" aria-label="Галерея">
         <img class="posts-gallery__item-photo" src="src/images/photo-elbrus.png" alt="фото горы Эльбрус">
         <div class="posts-gallery__item-panel">
           <p class="posts-gallery__item-heading">Гора Эльбрус</p>
@@ -84,7 +86,7 @@
       <div class="posts-gallery__item">
         <img class="posts-gallery__item-photo" src="src/images/photo-karachaevsk.png" alt="фото Карачаевска">
         <div class="posts-gallery__item-panel">
-          <p class="posts-gallery__item-heading">Карачаево-Ч...</p>
+          <p class="posts-gallery__item-heading">Карачаево-Черкессия и другое</p>
           <button class="posts-gallery__likeBtn">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" fill="none"><path fill="#000" d="M20.3 9.786c2.267-2.243 2.267-5.884 0-8.104-2.269-2.243-5.951-2.243-8.22 0l-1.1 1.11-1.1-1.088C7.612-.56 3.93-.56 1.684 1.682A5.657 5.657 0 0 0 0 5.745a5.75 5.75 0 0 0 1.684 4.063L10.98 19l9.32-9.214ZM1.436 5.745c0-1.155.45-2.22 1.28-3.02A4.33 4.33 0 0 1 5.771 1.46c1.1 0 2.2.422 3.054 1.265l2.155 2.11 2.156-2.132c1.684-1.665 4.446-1.665 6.108 0 .808.8 1.28 1.865 1.28 3.02 0 1.154-.45 2.22-1.28 3.02l-8.264 8.192-8.263-8.17c-.808-.822-1.28-1.888-1.28-3.02Z"/></svg>
           </button>

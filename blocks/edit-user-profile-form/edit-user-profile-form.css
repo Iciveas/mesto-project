@@ -1,8 +1,8 @@
 .edit-user-profile-form {
   border-radius: 10px;
   background-color: #fff;
-  width: 430px;
-  height: 330px;
+  min-width: 430px;
+  min-height: 330px;
   box-sizing: border-box;
   padding-left: 36px;
   display: flex;
@@ -11,5 +11,13 @@
   top: 195px;
   left: 50%;
   transform: translateX(-50%);
-  visibility: visible;
+}
+
+@media all and (max-width: 767px) {
+  .edit-user-profile-form {
+    min-width: 282px;
+    min-height: 322px;
+    padding: 0;
+    top: 123px;
+  }
 }

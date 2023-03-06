@@ -1,11 +1,26 @@
 .edit-user-profile-form__saveBtn {
   background-color: #000;
   color: #fff;
-  width: 358px;
-  height: 50px;
+  max-width: 358px;
+  min-height: 50px;
   border: none;
   margin-top: 48px;
   font-size: 18px;
   line-height: 22px;
   font-weight: normal;
+}
+
+.edit-user-profile-form__saveBtn:hover {
+  background-color: rgba(0, 0, 0, .8);
+}
+
+
+@media all and (max-width: 767px) {
+  .edit-user-profile-form__saveBtn {
+    min-width: 238px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 15px auto 25px;
+  }
 }

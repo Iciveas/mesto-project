@@ -4,3 +4,7 @@
   padding: 0;
   margin: 5px 5px 1px 0;
 }
+
+.posts-gallery__likeBtn:hover {
+  opacity: .5;
+}

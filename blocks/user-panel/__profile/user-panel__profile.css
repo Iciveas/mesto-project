@@ -1,3 +1,9 @@
 .user-panel__profile {
   display: flex;
 }
+
+@media all and (max-width: 767px) {
+  .user-panel__profile {
+    flex-direction: column;
+  }
+}

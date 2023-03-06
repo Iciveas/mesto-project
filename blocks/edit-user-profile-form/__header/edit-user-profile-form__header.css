@@ -1,5 +1,15 @@
 .edit-user-profile-form__header {
   margin: 34px 0 24px;
-  width: 330px;
+  min-width: 330px;
   font-size: 24px;
+}
+
+@media all and (max-width: 767px) {
+  .edit-user-profile-form__header {
+    min-width: 238px;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 25px 22px 75px;
+  }
 }

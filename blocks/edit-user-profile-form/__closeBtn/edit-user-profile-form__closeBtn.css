@@ -9,3 +9,14 @@
   top: -40px;
   right: -40px;
 }
+
+.edit-user-profile-form__closeBtn:hover {
+  opacity: .6;
+}
+
+@media all and (max-width: 767px) {
+  .edit-user-profile-form__closeBtn {
+    top: -56px;
+    right: 0;
+  }
+}

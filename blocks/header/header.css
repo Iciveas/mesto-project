@@ -1,4 +1,10 @@
 .header {
   border-bottom: 1px solid #545454;
-  height: 74px;
+  min-height: 74px;
+}
+
+@media all and (max-width: 767px) {
+  .header {
+    min-height: 56px;
+  }
 }

@@ -11,6 +11,7 @@
 @import url(blocks/user-signature/user-signature.css);
 @import url(blocks/user-panel/__editBtn/user-panel__editBtn.css);
 @import url(blocks/user-panel/__addPostBtn/user-panel__addPostBtn.css);
+@import url(blocks/user-panel/__addPostIcon/user-panel__addPostIcon.css);
 @import url(blocks/posts-gallery/posts-gallery.css);
 @import url(blocks/posts-gallery/__item/posts-gallery__item.css);
 @import url(blocks/posts-gallery/__item-photo/posts-gallery__item-photo.css);

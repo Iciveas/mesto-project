@@ -1,10 +1,36 @@
 .user-name {
   color: #fff;
-  width: 100%;
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
   margin: 22px 0 0;
   padding: 0;
-  height: 39px;
+  min-height: 39px;
+  min-width: 336px;
+  gap: 18px;
+  display: flex;
 }
+
+@media all and (max-width: 1023px) {
+  .user-name {
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 33px;
+    justify-content: center;
+    min-width: 100%;
+  }
+}
+
+
+@media all and (max-width: 320px) {
+  .user-name {
+    min-height: 26px;
+    gap: 10px;
+    padding-left: 65px;
+    min-width: 320px;
+    box-sizing: border-box;
+    justify-content: unset;
+  }
+}
+
+

@@ -1,8 +1,32 @@
 .posts-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-content: space-between;
-  width: 880px;
+  max-width: 880px;
   min-height: 744px;
   gap: 17px;
+  margin: 0 auto;
+}
+
+@media all and (max-width: 1023px) {
+  .posts-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    justify-items: center;
+    padding: 0px 35px;
+    box-sizing: border-box;
+  }
+}
+
+
+@media all and (max-width: 767px) {
+  .posts-gallery {
+    padding: 0px 19px;
+  }
+}
+
+@media all and (max-width: 635px) {
+  .posts-gallery {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
