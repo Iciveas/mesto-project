@@ -6,10 +6,12 @@
   line-height: 22px;
   padding: 67px 0 0 200px;
   box-sizing: border-box;
+  margin: 0;
 }
 
 @media all and (max-width: 767px) {
   .footer__text {
     padding: 48px 0 0 19px;
+    font-size: 14px;
   }
 }

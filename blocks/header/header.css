@@ -1,14 +1,14 @@
 .header {
   max-width: 880px;
-  margin: 45px auto 0;
+  margin: 0 auto;
+  padding: 45px 0 41px;
+  box-sizing: border-box;
   border-bottom: 1px solid #545454;
-  min-height: 74px;
 }
 
 @media all and (max-width: 767px) {
   .header {
-    margin-top: 28px;
-    min-height: 56px;
+    padding: 28px 0 31.6px;
     width: 100%;
   }
 }

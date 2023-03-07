@@ -2,10 +2,8 @@
   color: #fff;
   font-weight: 500;
   font-size: 42px;
-  line-height: 48px;
-  margin: 22px 0 0;
+  margin: 18.25px 0 0;
   padding: 0;
-  min-height: 39px;
   min-width: 336px;
   gap: 18px;
   display: flex;
@@ -24,7 +22,6 @@
 
 @media all and (max-width: 320px) {
   .user-panel__user-name {
-    min-height: 26px;
     gap: 10px;
     padding-left: 65px;
     min-width: 320px;
