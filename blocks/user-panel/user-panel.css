@@ -1,6 +1,5 @@
 .user-panel {
   margin: 40px auto 51px;
-  min-height: 120px;
   max-width: 880px;
   display: flex;
   justify-content: space-between;

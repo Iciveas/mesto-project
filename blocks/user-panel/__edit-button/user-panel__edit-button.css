@@ -1,9 +1,9 @@
 .user-panel__edit-button {
   border: 0;
-  margin: 0;
+  margin: 15px 0 0;
   padding: 0;
   background-color: #000;
-  width: 24px;
+  min-width: 24px;
   height: 24px;
   background-image: url(../../../src/buttons/edit-button.svg);
 }
@@ -20,6 +20,7 @@
 
 @media all and (max-width: 767px) {
   .user-panel__edit-button {
+    margin-top: 3px;
     transform: scale(0.75);
   }
 }

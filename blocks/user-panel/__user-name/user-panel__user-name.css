@@ -2,10 +2,8 @@
   color: #fff;
   font-weight: 500;
   font-size: 42px;
-  margin: 18.25px 0 0;
+  margin: 0 18px 0 0;
   padding: 0;
-  min-width: 336px;
-  gap: 18px;
   display: flex;
 }
 
@@ -13,20 +11,15 @@
   .user-panel__user-name {
     font-weight: 500;
     font-size: 27px;
-    line-height: 33px;
-    justify-content: center;
-    min-width: 100%;
   }
 }
 
 
 @media all and (max-width: 320px) {
   .user-panel__user-name {
-    gap: 10px;
+    margin: 0 10px 0 0;
     padding-left: 65px;
-    min-width: 320px;
     box-sizing: border-box;
-    justify-content: unset;
   }
 }
 

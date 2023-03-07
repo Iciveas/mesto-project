@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   max-width: 880px;
-  min-height: 744px;
   gap: 17px;
   margin: 0 auto;
 }
