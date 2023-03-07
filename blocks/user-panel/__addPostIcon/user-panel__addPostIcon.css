@@ -1,9 +1,0 @@
-.user-panel__addPostIcon {
-  transform: scale(1.375);
-}
-
-@media all and (max-width: 767px) {
-  .user-panel__addPostIcon {
-    transform: none;
-  }
-}

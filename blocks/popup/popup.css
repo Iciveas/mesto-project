@@ -1,17 +1,19 @@
 .popup {
-  height: 100%;
+  height: inherit;
   width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
   top: 0;
-  right: 0;
-  display: block;
-  position: absolute;
+  left: 0;
+  position: fixed;
   display: none;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.popup::before {
-  position: absolute;
-  content: "";
-  background: rgba(0, 0, 0, 0.5);
-  height: 100%;
-  width: 100%;
+@media all and (max-width: 320px) {
+  .popup {
+    top: 0;
+    left: 0;
+    max-width: 320px;
+  }
 }

@@ -1,20 +1,14 @@
 .user-panel {
-  margin: 40px 0 51px;
+  margin: 40px auto 51px;
   min-height: 120px;
   max-width: 880px;
   display: flex;
   justify-content: space-between;
 }
 
-@media all and (max-width: 1279px) {
-  .user-panel {
-    margin: 40px 20px 51px;
-  }
-}
-
 @media all and (max-width: 767px) {
   .user-panel {
     flex-direction: column;
-    margin: 42px 0 36px;
+    margin: 42px auto 36px;
   }
 }

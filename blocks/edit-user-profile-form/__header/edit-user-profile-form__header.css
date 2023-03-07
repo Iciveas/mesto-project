@@ -1,7 +1,9 @@
 .edit-user-profile-form__header {
   margin: 34px 0 24px;
   min-width: 330px;
+  font-weight: 900;
   font-size: 24px;
+  line-height: 29px;
 }
 
 @media all and (max-width: 767px) {

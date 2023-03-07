@@ -1,0 +1,13 @@
+.posts-gallery__like-button {
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  height: 19px;
+  min-width: 22px;
+  margin: 5px 5px 1px 0;
+  background-image: url(../../../src/buttons/like-button.svg);
+}
+
+.posts-gallery__like-button:hover {
+  opacity: .5;
+}
