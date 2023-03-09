@@ -13,6 +13,7 @@
 
 .edit-user-profile-form__close-button:hover {
   opacity: .6;
+  cursor: pointer;
 }
 
 

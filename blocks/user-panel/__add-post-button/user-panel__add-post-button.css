@@ -10,6 +10,7 @@
 
 .user-panel__add-post-button:hover {
   opacity: .6;
+  cursor: pointer;
 }
 
 @media all and (max-width: 767px) {

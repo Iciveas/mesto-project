@@ -2,9 +2,12 @@
   color: #fff;
   font-weight: 500;
   font-size: 42px;
+  max-width: 294px;
   margin: 0 18px 0 0;
   padding: 0;
-  display: flex;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; 
 }
 
 @media all and (max-width: 1023px) {
@@ -17,9 +20,8 @@
 
 @media all and (max-width: 320px) {
   .user-panel__user-name {
+    max-width: 189px;
     margin: 0 10px 0 0;
-    padding-left: 65px;
-    box-sizing: border-box;
   }
 }
 
