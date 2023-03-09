@@ -7,12 +7,11 @@
   padding: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 @media all and (max-width: 1023px) {
   .user-panel__user-name {
-    font-weight: 500;
     font-size: 27px;
   }
 }

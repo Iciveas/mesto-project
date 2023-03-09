@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 45px 0 41px;
   box-sizing: border-box;
-  border-bottom: 1px solid #545454;
+  border-bottom: 1px rgba(84, 84, 84, .7) solid;
 }
 
 @media all and (max-width: 880px) {

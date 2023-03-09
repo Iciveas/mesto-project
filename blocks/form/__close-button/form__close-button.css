@@ -1,7 +1,6 @@
-.edit-user-profile-form__close-button {
+.form__close-button {
   border: none;
-  background-color: transparent;
-  background-image: url(../../../src/buttons/close-button.svg);
+  background: url(../../../src/buttons/close-button.svg) transparent;
   width: 32px;
   height: 32px;
   top: -370px;
@@ -11,13 +10,13 @@
   position: relative;
 }
 
-.edit-user-profile-form__close-button:hover {
+.form__close-button:hover {
   opacity: .6;
   cursor: pointer;
 }
 
 @media all and (max-width: 767px) {
-  .edit-user-profile-form__close-button {
+  .form__close-button {
     left: unset;
     right: -131px;
     top: -363px;

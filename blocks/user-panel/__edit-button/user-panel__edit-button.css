@@ -2,10 +2,9 @@
   border: 0;
   margin: 15px 0 0;
   padding: 0;
-  background-color: #000;
   min-width: 24px;
   height: 24px;
-  background-image: url(../../../src/buttons/edit-button.svg);
+  background: #000 url(../../../src/buttons/edit-button.svg);
 }
 
 .user-panel__edit-button:hover {

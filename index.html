@@ -19,58 +19,58 @@
         <div class="user-panel__text-container">
           <div class="row-container">
             <h1 class="user-panel__user-name">Имя пользователя</h1>
-            <button type="button" class="user-panel__edit-button"></button>
+            <button type="button" class="user-panel__edit-button" aria-label="Кнопка редактирования данных пользователя."></button>
           </div>
           <p class="user-panel__user-signature">Подпись пользователя</p>
         </div>
-        
+
 
       </div>
-      <button type="button" class="user-panel__add-post-button"></button>
+      <button type="button" class="user-panel__add-post-button" aria-label="Кнопка создания нового поста."></button>
     </div>
 
     <section class="posts-gallery" aria-label="Галерея">
       <div class="posts-gallery__item">
         <img src="src/images/photo-karachaevsk.png" alt="Карачаевск. Фото.">
         <div class="posts-gallery__item-panel">
-          <p class="posts-gallery__item-heading">Карачаевск</p>
-          <button type="button" class="posts-gallery__like-button"></button>
+          <h2 class="posts-gallery__item-heading">Карачаевск</h2>
+          <button type="button" class="posts-gallery__like-button" aria-label="Лайкнуть пост."></button>
         </div>
       </div>
 
       <div class="posts-gallery__item">
         <img class="posts-gallery__item-photo" src="src/images/photo-elbrus.png" alt="Гора Эльбрус. Фото.">
         <div class="posts-gallery__item-panel">
-          <p class="posts-gallery__item-heading">Гора Эльбрус</p>
-          <button type="button" class="posts-gallery__like-button"></button>
+          <h2 class="posts-gallery__item-heading">Гора Эльбрус</h2>
+          <button type="button" class="posts-gallery__like-button" aria-label="Лайкнуть пост."></button>
         </div>
       </div>
       <div class="posts-gallery__item">
         <img class="posts-gallery__item-photo" src="src/images/photo-dombai.png" alt="Горнолыжный комплекс Домбай. Фото.">
         <div class="posts-gallery__item-panel">
-          <p class="posts-gallery__item-heading">Домбай</p>
-          <button type="button" class="posts-gallery__like-button"></button>
+          <h2 class="posts-gallery__item-heading">Домбай</h2>
+          <button type="button" class="posts-gallery__like-button" aria-label="Лайкнуть пост."></button>
         </div>
       </div>
       <div class="posts-gallery__item">
         <img class="posts-gallery__item-photo" src="src/images/photo-elbrus.png" alt="Гора Эльбрус. Фото.">
         <div class="posts-gallery__item-panel">
-          <p class="posts-gallery__item-heading">Гора Эльбрус</p>
-          <button type="button" class="posts-gallery__like-button"></button>
+          <h2 class="posts-gallery__item-heading">Гора Эльбрус</h2>
+          <button type="button" class="posts-gallery__like-button" aria-label="Лайкнуть пост."></button>
         </div>
       </div>
       <div class="posts-gallery__item">
         <img class="posts-gallery__item-photo" src="src/images/photo-dombai.png" alt="Горнолыжный комплекс Домбай. Фото.">
         <div class="posts-gallery__item-panel">
-          <p class="posts-gallery__item-heading">Домбай</p>
-          <button type="button" class="posts-gallery__like-button"></button>
+          <h2 class="posts-gallery__item-heading">Домбай</h2>
+          <button type="button" class="posts-gallery__like-button" aria-label="Лайкнуть пост."></button>
         </div>
       </div>
       <div class="posts-gallery__item">
         <img class="posts-gallery__item-photo" src="src/images/photo-karachaevsk.png" alt="Карачаевск. Фото.">
         <div class="posts-gallery__item-panel">
-          <p class="posts-gallery__item-heading">Карачаево-Черкессия и другое</p>
-          <button type="button" class="posts-gallery__like-button"></button>
+          <h2 class="posts-gallery__item-heading">Карачаево-Черкессия и другое</h2>
+          <button type="button" class="posts-gallery__like-button" aria-label="Лайкнуть пост."></button>
         </div>
       </div>
     </section>
@@ -82,16 +82,16 @@
 
   <div class="popup popup_opened">
     <div class="center-container">
-      <form class="edit-user-profile-form">
-        <h2 class="edit-user-profile-form__header">Редактировать профиль</h2>
-        <input type="text" class="edit-user-profile-form__input" placeholder="Имя" value="Жак-Ив Кусто">
-        <input type="text" class="edit-user-profile-form__input" placeholder="Подпись" value="Исследователь океана">
-        <button type="submit" class="edit-user-profile-form__save-button">Сохранить</button>
+      <form class="form" name="profile-info" method="POST">
+        <h2 class="form__header">Редактировать профиль</h2>
+        <input type="text" class="form__input form__input_user-name" placeholder="Имя" name="user-name" required>
+        <input type="text" class="form__input form__input_user-signature" placeholder="Подпись" name="user-signature">
+        <button type="submit" class="form__save-button" aria-label="Кнопка сохранения изменений.">Сохранить</button>
       </form>
-      <button type="button" class="edit-user-profile-form__close-button"></button>
+      <button type="button" class="form__close-button" aria-label="Кнопка отмены изменений."></button>
     </div>
   </div>
 
-  
+
 </body>
 </html>

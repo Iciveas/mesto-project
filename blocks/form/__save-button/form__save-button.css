@@ -1,4 +1,4 @@
-.edit-user-profile-form__save-button {
+.form__save-button {
   background-color: #000;
   color: #fff;
   max-width: 358px;
@@ -10,14 +10,14 @@
   font-weight: normal;
 }
 
-.edit-user-profile-form__save-button:hover {
+.form__save-button:hover {
   background-color: rgba(0, 0, 0, .8);
   cursor: pointer;
 }
 
 
 @media all and (max-width: 767px) {
-  .edit-user-profile-form__save-button {
+  .form__save-button {
     min-width: 238px;
     font-weight: 400;
     font-size: 14px;

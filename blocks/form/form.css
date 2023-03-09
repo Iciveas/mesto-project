@@ -1,4 +1,4 @@
-.edit-user-profile-form {
+.form {
   border-radius: 10px;
   background-color: #fff;
   max-width: 430px;
@@ -6,13 +6,11 @@
   padding: 0 36px;
   display: flex;
   flex-direction: column;
-  margin: 195px auto 0;
 }
 
 @media all and (max-width: 767px) {
-  .edit-user-profile-form {
+  .form {
     max-width: 282px;
     padding: 0;
-    margin: 123px auto 0;
   }
 }

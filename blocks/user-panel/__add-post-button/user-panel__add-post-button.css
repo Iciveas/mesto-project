@@ -1,9 +1,8 @@
 .user-panel__add-post-button {
   border: 0;
   margin: 35px 0 0;
-  background: transparent;
+  background: url(../../../src/buttons/add-post-button-1280.svg) transparent;
   padding: 0;
-  background-image: url(../../../src/buttons/add-post-button-1280.svg);
   width: 150px;
   height: 50px;
 }
@@ -16,7 +15,6 @@
 @media all and (max-width: 767px) {
   .user-panel__add-post-button {
     width: 282px;
-    height: 50px;
     margin: 35px auto 0;
     background-image: url(../../../src/buttons/add-post-button-320.svg);
   }
