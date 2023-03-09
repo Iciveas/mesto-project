@@ -19,6 +19,7 @@
 
 @media all and (max-width: 767px) {
   .user-panel__user-signature {
+    text-align: center;
     margin: 14px auto 0;
     font-size: 14px;
     max-width: 282px;

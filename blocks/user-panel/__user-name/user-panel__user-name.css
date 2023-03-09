@@ -3,7 +3,7 @@
   font-weight: 500;
   font-size: 42px;
   max-width: 294px;
-  margin: 0 18px 0 0;
+  margin: 0;
   padding: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -18,10 +18,15 @@
 }
 
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 767px) {
   .user-panel__user-name {
     max-width: 189px;
-    margin: 0 10px 0 0;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .user-panel__user-name {
+    text-align: center;
   }
 }
 

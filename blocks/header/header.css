@@ -6,6 +6,12 @@
   border-bottom: 1px solid #545454;
 }
 
+@media all and (max-width: 880px) {
+  .header {
+    padding: 45px 35px 41px;
+  }
+}
+
 @media all and (max-width: 767px) {
   .header {
     padding: 28px 0 31.6px;

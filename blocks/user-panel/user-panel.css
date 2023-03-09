@@ -5,6 +5,13 @@
   justify-content: space-between;
 }
 
+
+@media all and (max-width: 880px) {
+  .user-panel {
+    margin: 40px 35px 51px;
+  }
+}
+
 @media all and (max-width: 767px) {
   .user-panel {
     flex-direction: column;
