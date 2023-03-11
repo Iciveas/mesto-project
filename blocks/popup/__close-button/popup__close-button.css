@@ -3,11 +3,10 @@
   background: url(../../../src/buttons/close-button.svg) transparent;
   width: 32px;
   height: 32px;
-  top: -370px;
-  left: 239px;
+  top: calc(50% - 165px - 40px);
+  left: calc(50% + 215px + 8px);
   padding: 0;
-  margin: 0 auto;
-  position: relative;
+  position: absolute;
 }
 
 .popup__close-button:hover {
@@ -17,9 +16,8 @@
 
 @media all and (max-width: 767px) {
   .popup__close-button {
-    left: unset;
-    right: -131px;
-    top: -363px;
+    left: calc(50% + 115px);
+    top: calc(50% - 164px - 36px);
     transform: scale(0.625);
   }
 }
