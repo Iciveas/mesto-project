@@ -7,15 +7,8 @@
   padding: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden; 
+  overflow: hidden;
 }
-
-@media all and (max-width: 1023px) {
-  .user-panel__user-signature {
-    margin: 0;
-  }
-}
-
 
 @media all and (max-width: 767px) {
   .user-panel__user-signature {
