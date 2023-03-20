@@ -1,0 +1,15 @@
+.popup_closed {
+  display: flex;
+  animation: closing forwards .3s;
+  pointer-events: none;
+}
+
+@keyframes closing {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

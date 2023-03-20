@@ -13,16 +13,20 @@ const nameInput = document.querySelector('.form__input_user-name');
 const signatureInput = document.querySelector('.form__input_user-signature');
 
 function openProfileEditor() {
-
+  popup.style.display = "";
   nameInput.value = profileName.textContent;
   signatureInput.value = profileSignature.textContent;
 
+  popup.classList.remove('popup_closed');
   popup.classList.add('popup_opened');
 
 }
 
 function closeProfileEditor() {
+  popup.classList.add('popup_closed');
+  addEventListener('animationend', () => {popup.style.display = "none"; }, {once: true});
   popup.classList.remove('popup_opened');
+
 }
 
 function saveProfileInfo(evt) {
