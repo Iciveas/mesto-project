@@ -88,10 +88,27 @@
         <input type="text" class="form__input form__input_user-signature" placeholder="Подпись" name="user-signature">
         <button type="submit" class="form__save-button" aria-label="Кнопка сохранения изменений.">Сохранить</button>
       </form>
+
+      <form class="form" name="add-post" method="POST">
+        <h2 class="form__header">Новое место</h2>
+        <input type="text" class="form__input form__input_post-heading" placeholder="Название" name="post-heading" required>
+        <input type="text" class="form__input form__input_post-picture-link" placeholder="Ссылка на картинку" name="post-picture-link" required>
+        <button type="submit" class="form__save-button" aria-label="Кнопка публикации поста.">Создать</button>
+      </form>
+
       <button type="button" class="popup__close-button" aria-label="Кнопка отмены изменений."></button>
     </div>
   </div>
 
+  <template id="post-template">
+    <div class="posts-gallery__item">
+      <img class="posts-gallery__item-photo" src="" alt="">
+      <div class="posts-gallery__item-panel">
+        <h2 class="posts-gallery__item-heading"></h2>
+        <button type="button" class="posts-gallery__like-button" aria-label="Лайкнуть пост."></button>
+      </div>
+    </div>
+  </template>
   <script src="src/scripts/index.js"></script>
 </body>
 </html>
