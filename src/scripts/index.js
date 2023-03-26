@@ -108,10 +108,7 @@ function createPost (name, link) {
 
   postElement.querySelector('.posts-gallery__item-photo').setAttribute('src', link);
   postElement.querySelector('.posts-gallery__item-heading').textContent = name;
-
-  console.dir(postElement.querySelector('.posts-gallery__item-heading').attributes);
-  postsGallery.append(postElement);
-  console.dir(postElement);
+  postsGallery.prepend(postElement);
 }
 
 function createSomeTemplatePosts (postsArray) {
