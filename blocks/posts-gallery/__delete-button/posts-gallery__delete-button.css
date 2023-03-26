@@ -1,0 +1,10 @@
+.posts-gallery__delete-button {
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 19.3px;
+  min-width: 18px;
+  background: url(../../../src/buttons/delete-post-button.svg);
+}

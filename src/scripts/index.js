@@ -23,6 +23,8 @@ const signatureInput = document.querySelector('.form__input_user-signature');
 const postsGallery = document.querySelector('.posts-gallery');
 const postTemplate = document.querySelector('#post-template').content;
 const likePostButtons = document.querySelectorAll('.posts-gallery__like-button');
+const deletePostButtons = document.querySelectorAll('.posts-gallery__delete-button');
+
 
 //Создаем дефолтный массив для 6 постов
 const initialCards = [
@@ -111,10 +113,15 @@ function createPost (name, link) {
   postElement.querySelector('.posts-gallery__item-heading').textContent = name;
 
   postsGallery.prepend(postElement);
-  postElement.querySelector('.posts-gallery__like-button') .addEventListener('click', function(evt) {
+  postElement.querySelector('.posts-gallery__like-button').addEventListener('click', function(evt) {
     evt.target.classList.toggle('posts-gallery__like-button_active');
   });
+  postElement.querySelector('.posts-gallery__delete-button').addEventListener('click', deletePost);
 
+}
+
+function deletePost (evt) {
+  evt.target.parentElement.remove();
 }
 
 function createSomeTemplatePosts (postsArray) {
@@ -137,5 +144,12 @@ for (let i = 0; i < likePostButtons.length; i++) {
     likePostButtons[i].addEventListener('click', function (evt) {
       evt.target.classList.toggle('posts-gallery__like-button_active');
     });
+  }
+}
+
+//Навешиваем слушатель на кнопки удаления карточек из index.html
+for (let i = 0; i < deletePostButtons.length; i++) {
+  if (deletePostButtons[i].getAttribute('listener') !== 'true') {
+    deletePostButtons[i].addEventListener('click', deletePost);
   }
 }
