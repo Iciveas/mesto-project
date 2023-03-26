@@ -139,17 +139,17 @@ profileEditForm.addEventListener('submit', saveForm);
 postAddForm.addEventListener('submit', saveForm);
 
 //Навешиваем слушатель на кнопки лайка карточек из index.html
-for (let i = 0; i < likePostButtons.length; i++) {
-  if (likePostButtons[i].getAttribute('listener') !== 'true') {
-    likePostButtons[i].addEventListener('click', function (evt) {
+likePostButtons.forEach(function (item) {
+  if (item.getAttribute('listener') !== 'true') {
+    item.addEventListener('click', function (evt) {
       evt.target.classList.toggle('posts-gallery__like-button_active');
     });
   }
-}
+});
 
 //Навешиваем слушатель на кнопки удаления карточек из index.html
-for (let i = 0; i < deletePostButtons.length; i++) {
-  if (deletePostButtons[i].getAttribute('listener') !== 'true') {
-    deletePostButtons[i].addEventListener('click', deletePost);
+deletePostButtons.forEach(function(item) {
+  if (item.getAttribute('listener') !== 'true') {
+    item.addEventListener('click', deletePost);
   }
-}
+});
