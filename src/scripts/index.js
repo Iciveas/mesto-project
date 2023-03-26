@@ -1,10 +1,6 @@
-//Создаем переменные для полей формы с инфо пользователя
-const nameInput = document.querySelector('.form__input_user-name');
-const signatureInput = document.querySelector('.form__input_user-signature');
-
-//Создаем переменные для работы с новым постом
-const postsGallery = document.querySelector('.posts-gallery');
-const postTemplate = document.querySelector('#post-template').content;
+//Получаем кнопки для вызова форм
+const editProfileButton = document.querySelector('.user-panel__edit-button');
+const addPostButton = document.querySelector('.user-panel__add-post-button');
 
 //Получаем поп-ап и все формы в нём
 const popup = document.querySelector('.popup');
@@ -15,13 +11,18 @@ const postAddForm = document.querySelector('[name="add-post"]');
 const profileName = document.querySelector('.user-panel__user-name');
 const profileSignature = document.querySelector('.user-panel__user-signature');
 
-//Получаем кнопки для вызова форм
-const editProfileButton = document.querySelector('.user-panel__edit-button');
-const addPostButton = document.querySelector('.user-panel__add-post-button');
-
 //Получаем кнопки, универсальные для форм
 const closePopupButton = popup.querySelector('.popup__close-button'); //кнопка закрытия формы
 const saveButton = document.querySelector('.form__save-button'); //кнопка 'отправки' данных из формы
+
+//Создаем переменные для полей формы с инфо пользователя
+const nameInput = document.querySelector('.form__input_user-name');
+const signatureInput = document.querySelector('.form__input_user-signature');
+
+//Создаем переменные для работы с новым постом
+const postsGallery = document.querySelector('.posts-gallery');
+const postTemplate = document.querySelector('#post-template').content;
+const likePostButtons = document.querySelectorAll('.posts-gallery__like-button');
 
 //Создаем дефолтный массив для 6 постов
 const initialCards = [
@@ -108,7 +109,12 @@ function createPost (name, link) {
 
   postElement.querySelector('.posts-gallery__item-photo').setAttribute('src', link);
   postElement.querySelector('.posts-gallery__item-heading').textContent = name;
+
   postsGallery.prepend(postElement);
+  postElement.querySelector('.posts-gallery__like-button') .addEventListener('click', function(evt) {
+    evt.target.classList.toggle('posts-gallery__like-button_active');
+  });
+
 }
 
 function createSomeTemplatePosts (postsArray) {
@@ -125,3 +131,11 @@ closePopupButton.addEventListener('click', closeForm);
 profileEditForm.addEventListener('submit', saveForm);
 postAddForm.addEventListener('submit', saveForm);
 
+//Навешиваем слушатель на кнопки лайка карточек из index.html
+for (let i = 0; i < likePostButtons.length; i++) {
+  if (likePostButtons[i].getAttribute('listener') !== 'true') {
+    likePostButtons[i].addEventListener('click', function (evt) {
+      evt.target.classList.toggle('posts-gallery__like-button_active');
+    });
+  }
+}
