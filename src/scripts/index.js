@@ -24,6 +24,7 @@ const postsGallery = document.querySelector('.posts-gallery');
 const postTemplate = document.querySelector('#post-template').content;
 const likePostButtons = document.querySelectorAll('.posts-gallery__like-button');
 const deletePostButtons = document.querySelectorAll('.posts-gallery__delete-button');
+const galleryImages = document.querySelectorAll('.posts-gallery__item-photo');
 
 
 //Создаем дефолтный массив для 6 постов
@@ -63,6 +64,9 @@ function openForm (evt) {
   popup.classList.remove('popup_closed');
   popup.classList.add('popup_opened');
 
+  //Очищаем изменения позиции для кнопки закрытия, для случая если раньше были открыты фото
+  popup.querySelector('.popup__close-button').style = "";
+
   if (targetForm.className === 'user-panel__add-post-button') {
     popup.style.display = "";
     profileEditForm.style.display = "none";
@@ -84,6 +88,11 @@ function closeForm() {
   popup.classList.add('popup_closed');
   addEventListener('animationend', () => {popup.style.display = "none"; }, {once: true});
   popup.classList.remove('popup_opened');
+
+  if (popup.querySelector('.center-container').querySelector('.posts-gallery__shown-photo'))
+  {
+    popup.querySelector('.center-container').removeChild(popup.querySelector('.posts-gallery__shown-photo'));
+  }
 }
 
 function saveForm(evt) {
@@ -117,6 +126,7 @@ function createPost (name, link) {
     evt.target.classList.toggle('posts-gallery__like-button_active');
   });
   postElement.querySelector('.posts-gallery__delete-button').addEventListener('click', deletePost);
+  postElement.querySelector('.posts-gallery__item-photo').addEventListener('click', openImage);
 
 }
 
@@ -131,6 +141,40 @@ function createSomeTemplatePosts (postsArray) {
 }
 
 createSomeTemplatePosts(initialCards);
+
+function openImage(evt) {
+  const targetImage = evt.target;
+
+  popup.classList.remove('popup_closed');
+  popup.classList.add('popup_opened');
+  popup.style.display = "";
+
+  postAddForm.style.display = "none";
+  profileEditForm.style.display = "none";
+
+  console.log(targetImage.src);
+
+  const img = new Image(); // width, height
+  img.src = targetImage.src;
+  if (img.height > img.width) {
+    img.height = 540;
+    img.width = 433;
+    popup.querySelector('.popup__close-button').style.top = 'calc(50% - 270px - 40px)';
+    popup.querySelector('.popup__close-button').style.left = 'calc(50% + 216px + 8px)';
+  }
+  else {
+    img.height = 540;
+    img.width = 816;
+    popup.querySelector('.popup__close-button').style.top = 'calc(50% - 270px - 40px)';
+    popup.querySelector('.popup__close-button').style.left = 'calc(50% + 408px + 8px)';
+  }
+
+
+
+  popup.querySelector('.center-container').appendChild(img);
+  img.classList.add('posts-gallery__shown-photo');
+
+}
 
 editProfileButton.addEventListener('click', openForm);
 addPostButton.addEventListener('click', openForm);
@@ -151,5 +195,11 @@ likePostButtons.forEach(function (item) {
 deletePostButtons.forEach(function(item) {
   if (item.getAttribute('listener') !== 'true') {
     item.addEventListener('click', deletePost);
+  }
+});
+
+galleryImages.forEach(function(item) {
+  if (item.getAttribute('listener') !== 'true') {
+    item.addEventListener('click', openImage);
   }
 });

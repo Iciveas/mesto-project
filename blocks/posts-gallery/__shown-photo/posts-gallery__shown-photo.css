@@ -1,0 +1,5 @@
+.posts-gallery__shown-photo {
+  margin: auto;
+  object-fit: cover;
+  object-position: center;
+}
