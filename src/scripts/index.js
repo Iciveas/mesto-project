@@ -86,13 +86,14 @@ function openForm (evt) {
 
 function closeForm() {
   popup.classList.add('popup_closed');
-  addEventListener('animationend', () => {popup.style.display = "none"; }, {once: true});
+  addEventListener('animationend', () => {
+    popup.style.display = "none";
+    if (popup.querySelector('.center-container').querySelector('.posts-gallery__shown-photo'))
+    {
+      popup.querySelector('.center-container').removeChild(popup.querySelector('.posts-gallery__shown-photo'));
+    }
+  }, {once: true});
   popup.classList.remove('popup_opened');
-
-  if (popup.querySelector('.center-container').querySelector('.posts-gallery__shown-photo'))
-  {
-    popup.querySelector('.center-container').removeChild(popup.querySelector('.posts-gallery__shown-photo'));
-  }
 }
 
 function saveForm(evt) {
@@ -152,27 +153,22 @@ function openImage(evt) {
   postAddForm.style.display = "none";
   profileEditForm.style.display = "none";
 
-  console.log(targetImage.src);
-
-  const img = new Image(); // width, height
+  const img = new Image();
   img.src = targetImage.src;
-  if (img.height > img.width) {
-    img.height = 540;
-    img.width = 433;
-    popup.querySelector('.popup__close-button').style.top = 'calc(50% - 270px - 40px)';
-    popup.querySelector('.popup__close-button').style.left = 'calc(50% + 216px + 8px)';
-  }
-  else {
-    img.height = 540;
-    img.width = 816;
-    popup.querySelector('.popup__close-button').style.top = 'calc(50% - 270px - 40px)';
-    popup.querySelector('.popup__close-button').style.left = 'calc(50% + 408px + 8px)';
-  }
-
-
 
   popup.querySelector('.center-container').appendChild(img);
   img.classList.add('posts-gallery__shown-photo');
+  img.onload = function() {
+    if (window.screen.width > 320) {
+    popup.querySelector('.popup__close-button').style.top = `calc(50% - ${img.clientHeight/2}px - ${popup.querySelector('.popup__close-button').clientHeight}px - 8px)`;
+    popup.querySelector('.popup__close-button').style.left = `calc(50% + ${img.clientWidth/2}px + 8px)`;
+    }
+    else {
+      popup.querySelector('.popup__close-button').style.top = `calc(50% - ${img.clientHeight/2}px - ${popup.querySelector('.popup__close-button').clientHeight}px - 8px)`;
+      popup.querySelector('.popup__close-button').style.left = `calc(40% + ${img.clientWidth/2}px + 5px)`;
+    }
+  }
+  console.log(img.clientWidth, img.clientHeight);
 
 }
 

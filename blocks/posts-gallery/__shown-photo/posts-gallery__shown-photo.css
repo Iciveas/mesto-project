@@ -2,4 +2,6 @@
   margin: auto;
   object-fit: cover;
   object-position: center;
+  max-height: 75vh;
+  max-width: 75vw;
 }
