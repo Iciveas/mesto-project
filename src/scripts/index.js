@@ -22,9 +22,6 @@ const signatureInput = document.querySelector('.form__input_user-signature');
 //Создаем переменные для работы с новым постом
 const postsGallery = document.querySelector('.posts-gallery');
 const postTemplate = document.querySelector('#post-template').content;
-const likePostButtons = document.querySelectorAll('.posts-gallery__like-button');
-const deletePostButtons = document.querySelectorAll('.posts-gallery__delete-button');
-const galleryImages = document.querySelectorAll('.posts-gallery__item-photo');
 
 
 //Создаем дефолтный массив для 6 постов
@@ -177,25 +174,3 @@ addPostButton.addEventListener('click', openForm);
 closePopupButton.addEventListener('click', closeForm);
 profileEditForm.addEventListener('submit', saveForm);
 postAddForm.addEventListener('submit', saveForm);
-
-//Навешиваем слушатель на кнопки лайка карточек из index.html
-likePostButtons.forEach(function (item) {
-  if (item.getAttribute('listener') !== 'true') {
-    item.addEventListener('click', function (evt) {
-      evt.target.classList.toggle('posts-gallery__like-button_active');
-    });
-  }
-});
-
-//Навешиваем слушатель на кнопки удаления карточек из index.html
-deletePostButtons.forEach(function(item) {
-  if (item.getAttribute('listener') !== 'true') {
-    item.addEventListener('click', deletePost);
-  }
-});
-
-galleryImages.forEach(function(item) {
-  if (item.getAttribute('listener') !== 'true') {
-    item.addEventListener('click', openImage);
-  }
-});
