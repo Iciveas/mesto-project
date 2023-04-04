@@ -38,14 +38,22 @@
     <p class="footer__text">&#169; 2020 Mesto Russia</p>
   </footer>
 
-  <div class="popup">
+  <div class="popup popup_type-profile">
     <div class="center-container">
+
       <form class="form" name="profile-info" method="POST">
         <h2 class="form__header">Редактировать профиль</h2>
         <input type="text" class="form__input form__input_user-name" placeholder="Имя" name="user-name" required autocomplete="name">
         <input type="text" class="form__input form__input_user-signature" placeholder="Подпись" name="user-signature">
         <button type="submit" class="form__save-button" aria-label="Кнопка сохранения изменений.">Сохранить</button>
       </form>
+
+      <button type="button" class="popup__close-button" aria-label="Кнопка отмены изменений." name="close-profile-form-button"></button>
+    </div>
+  </div>
+
+  <div class="popup popup_type-new-post">
+    <div class="center-container">
 
       <form class="form" name="add-post" method="POST">
         <h2 class="form__header">Новое место</h2>
@@ -54,8 +62,17 @@
         <button type="submit" class="form__save-button" aria-label="Кнопка публикации поста.">Создать</button>
       </form>
 
-      <button type="button" class="popup__close-button" aria-label="Кнопка отмены изменений."></button>
+      <button type="button" class="popup__close-button" aria-label="Кнопка отмены создания поста." name="close-new-post-button"></button>
     </div>
+  </div>
+
+  <div class="popup popup_type-photo">
+
+    <div class="center-container">
+    <button type="button" class="popup__close-button" aria-label="Кнопка закрытия фото" name="close-shown-photo"></button>
+
+    </div>
+
   </div>
 
   <template id="post-template">

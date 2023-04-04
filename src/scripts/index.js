@@ -2,18 +2,22 @@
 const editProfileButton = document.querySelector('.user-panel__edit-button');
 const addPostButton = document.querySelector('.user-panel__add-post-button');
 
-//Получаем поп-ап и все формы в нём
-const popup = document.querySelector('.popup');
-const profileEditForm = document.querySelector('[name="profile-info"]');
-const postAddForm = document.querySelector('[name="add-post"]');
+//Получаем поп-апы
+const editProfilePopup = document.querySelector('.popup_type-profile');
+const addPostPopup = document.querySelector('.popup_type-new-post');
+const photoPopup = document.querySelector('.popup_type-photo');
+
+//Получаем формы
+const editProfileForm = document.forms['profile-info'];
+const addPostForm = document.forms['add-post'];
 
 //Получаем текущие данные пользователя
 const profileName = document.querySelector('.user-panel__user-name');
 const profileSignature = document.querySelector('.user-panel__user-signature');
 
-//Получаем кнопки, универсальные для форм
-const closePopupButton = popup.querySelector('.popup__close-button'); //кнопка закрытия формы
-const saveButton = document.querySelector('.form__save-button'); //кнопка 'отправки' данных из формы
+//Получаем кнопки закрытия поп-апов
+const closeButtons = document.querySelectorAll('.popup__close-button');
+
 
 //Создаем переменные для полей формы с инфо пользователя
 const nameInput = document.querySelector('.form__input_user-name');
@@ -22,6 +26,8 @@ const signatureInput = document.querySelector('.form__input_user-signature');
 //Создаем переменные для работы с новым постом
 const postsGallery = document.querySelector('.posts-gallery');
 const postTemplate = document.querySelector('#post-template').content;
+const postHeadingInput = document.querySelector('.form__input_post-heading');
+const postLinkInput = document.querySelector('.form__input_post-picture-link');
 
 
 //Создаем дефолтный массив для 6 постов
@@ -53,84 +59,121 @@ const initialCards = [
 ];
 
 
-
-function openForm (evt) {
-  //Получаем текущую форму
-  const targetForm = evt.target;
-
+function openPopup (popup) {
   popup.classList.remove('popup_closed');
   popup.classList.add('popup_opened');
+  popup.style.display = "";
+}
 
-  //Очищаем изменения позиции для кнопки закрытия, для случая если раньше были открыты фото
-  popup.querySelector('.popup__close-button').style = "";
+function closePopup() {
+  this.classList.add('popup_closed');
+  /*В прошлом ревью строки ниже указали удалить, с комментарием:
 
-  if (targetForm.className === 'user-panel__add-post-button') {
-    popup.style.display = "";
-    profileEditForm.style.display = "none";
-    postAddForm.style.display = "";
-  }
-  else {
-    popup.style.display = "";
-    postAddForm.style.display = "none";
-    profileEditForm.style.display = "";
+  /*
+  <<Этого больше не будет, все делает popup_opened
+  По заданию нужно сделать плавное открытие и закрытие попапов.
+  Это указано в самом низу задания.
+  Там есть даже ссылка на форум, где показано, как это сделать через visibility, opacity и  transition: visibility 0.2s, opacity 0.2s ease-in;
+  в классе popup и модификаторе popup_opened.
+  А display: flex мешает плавно закрывать попапы.
+  Это должно быть только в popup>> */
 
-    //Заполняем поля текущими данными
+  /*
+  Я это оставила потому что не уверена, что при ревью убедились в работоспособности данного способа.
+  также, я увеличила длительность анимации в css, чтобы можно было воочию убедиться
+  если использование дополнительного класса для закрытия поп-апа - зло, прошу более развернутый комментарий
+  на мой взгляд это дполнительно удобно, потому что в index.html такой поп-ап будет дополнительно помечен классом как закрытый на текущий момент
+  */
+
+
+  addEventListener('animationend', () => {
+    this.style.display = "none";
+    if (this.querySelector('.center-container').querySelector('.popup__shown-photo'))
+    {
+      this.querySelector('.center-container').removeChild(this.querySelector('.img-container'));
+    }
+  }, {once: true});
+  this.classList.remove('popup_opened');
+}
+
+function openImage(popup) {
+  openPopup(popup);
+  const viewContainer = popup.querySelector('.center-container');
+  const imgContainer = document.createElement('figure');
+
+  const img = new Image();
+  const imgExistingHeading = this.closest('.posts-gallery__item').querySelector('.posts-gallery__item-heading');
+  const imgFigCaption= document.createElement('figcaption');
+
+  img.src = this.src;
+  imgFigCaption.textContent = imgExistingHeading.textContent;
+
+  imgContainer.classList.add('img-container');
+  img.classList.add('popup__shown-photo');
+  imgFigCaption.classList.add('popup__shown-photo-figcaption');
+  viewContainer.append(imgContainer);
+  imgContainer.append(img, imgFigCaption);
+
+}
+
+
+function openForm (popup) {
+  openPopup(popup);
+  if (this.name === 'profile-info') {
+    //Заполняем поля формы профиля текущими данными пользователя
     nameInput.value = profileName.textContent;
     signatureInput.value = profileSignature.textContent;
   }
-
 }
 
-function closeForm() {
-  popup.classList.add('popup_closed');
-  addEventListener('animationend', () => {
-    popup.style.display = "none";
-    if (popup.querySelector('.center-container').querySelector('.posts-gallery__shown-photo'))
-    {
-      popup.querySelector('.center-container').removeChild(popup.querySelector('.posts-gallery__shown-photo'));
-    }
-  }, {once: true});
-  popup.classList.remove('popup_opened');
-}
 
-function saveForm(evt) {
+function saveProfile(evt) {
   evt.preventDefault();
 
-  if (evt.target.name === 'add-post') {
-    //Создаем переменные для полей формы с будущим постом
-    const name = document.querySelector('.form__input_post-heading').value;
-    const link = document.querySelector('.form__input_post-picture-link').value;
+  profileName.textContent = nameInput.value;
+  profileSignature.textContent = signatureInput.value;
 
-    createPost(name, link);
-
-    document.querySelector('.form__input_post-heading').value = ''
-    document.querySelector('.form__input_post-picture-link').value = '';
-  }
-  else {
-    profileName.textContent = nameInput.value;
-    profileSignature.textContent = signatureInput.value;
-  }
-  closeForm();
+  closePopup.call(editProfilePopup);
 }
 
-function createPost (name, link) {
-  const postElement = postTemplate.querySelector('.posts-gallery__item').cloneNode(true);
+function saveNewPost(evt) {
+  evt.preventDefault();
 
-  postElement.querySelector('.posts-gallery__item-photo').setAttribute('src', link);
-  postElement.querySelector('.posts-gallery__item-heading').textContent = name;
+  //Создаем переменные для полей формы с будущим постом
+  const name = postHeadingInput.value;
+  const link = postLinkInput.value;
 
-  postsGallery.prepend(postElement);
-  postElement.querySelector('.posts-gallery__like-button').addEventListener('click', function(evt) {
+  createPost(name, link);
+
+  evt.target.reset();
+
+  closePopup.call(addPostPopup);
+}
+
+
+function createCard (name, link) {
+  const cardElement = postTemplate.querySelector('.posts-gallery__item').cloneNode(true);
+  const postPhoto = cardElement.querySelector('.posts-gallery__item-photo');
+  const postHeading = cardElement.querySelector('.posts-gallery__item-heading');
+
+  postPhoto.setAttribute('src', link);
+  postPhoto.setAttribute('alt', name);
+  postHeading.textContent = name;
+
+  cardElement.querySelector('.posts-gallery__like-button').addEventListener('click', function(evt) {
     evt.target.classList.toggle('posts-gallery__like-button_active');
   });
-  postElement.querySelector('.posts-gallery__delete-button').addEventListener('click', deletePost);
-  postElement.querySelector('.posts-gallery__item-photo').addEventListener('click', openImage);
-
+  cardElement.querySelector('.posts-gallery__delete-button').addEventListener('click', deletePost);
+  postPhoto.addEventListener('click', openImage.bind(postPhoto, photoPopup));
+  return cardElement;
 }
 
-function deletePost (evt) {
-  evt.target.parentElement.remove();
+function createPost(name, link) {
+  const postElement = createCard(name, link);
+  postsGallery.prepend(postElement);
 }
+
+
 
 function createSomeTemplatePosts (postsArray) {
   for (let i = 0; i < postsArray.length; i++) {
@@ -138,39 +181,22 @@ function createSomeTemplatePosts (postsArray) {
   }
 }
 
-createSomeTemplatePosts(initialCards);
-
-function openImage(evt) {
-  const targetImage = evt.target;
-
-  popup.classList.remove('popup_closed');
-  popup.classList.add('popup_opened');
-  popup.style.display = "";
-
-  postAddForm.style.display = "none";
-  profileEditForm.style.display = "none";
-
-  const img = new Image();
-  img.src = targetImage.src;
-
-  popup.querySelector('.center-container').appendChild(img);
-  img.classList.add('posts-gallery__shown-photo');
-  img.onload = function() {
-    if (window.screen.width > 320) {
-    popup.querySelector('.popup__close-button').style.top = `calc(50% - ${img.clientHeight/2}px - ${popup.querySelector('.popup__close-button').clientHeight}px - 8px)`;
-    popup.querySelector('.popup__close-button').style.left = `calc(50% + ${img.clientWidth/2}px + 8px)`;
-    }
-    else {
-      popup.querySelector('.popup__close-button').style.top = `calc(50% - ${img.clientHeight/2}px - ${popup.querySelector('.popup__close-button').clientHeight}px - 8px)`;
-      popup.querySelector('.popup__close-button').style.left = `calc(40% + ${img.clientWidth/2}px + 5px)`;
-    }
-  }
-  console.log(img.clientWidth, img.clientHeight);
-
+function deletePost (evt) {
+  evt.target.parentElement.remove();
 }
 
-editProfileButton.addEventListener('click', openForm);
-addPostButton.addEventListener('click', openForm);
-closePopupButton.addEventListener('click', closeForm);
-profileEditForm.addEventListener('submit', saveForm);
-postAddForm.addEventListener('submit', saveForm);
+
+
+editProfileButton.addEventListener('click', openForm.bind(editProfileForm, editProfilePopup));
+addPostButton.addEventListener('click', openForm.bind(addPostForm, addPostPopup));
+
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', closePopup.bind(popup));
+});
+
+
+editProfileForm.addEventListener('submit', saveProfile);
+addPostForm.addEventListener('submit', saveNewPost);
+
+createSomeTemplatePosts(initialCards);

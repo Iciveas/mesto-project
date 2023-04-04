@@ -1,6 +1,6 @@
 .popup_opened {
   display: flex;
-  animation: opening forwards .3s;
+  animation: opening forwards .8s;
 }
 
 @keyframes opening {
