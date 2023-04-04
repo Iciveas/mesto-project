@@ -111,8 +111,8 @@ function openImage(popup) {
   imgContainer.classList.add('img-container');
   img.classList.add('popup__shown-photo');
   imgFigCaption.classList.add('popup__shown-photo-figcaption');
-  viewContainer.append(imgContainer);
   imgContainer.append(img, imgFigCaption);
+  viewContainer.append(imgContainer);
 
 }
 
