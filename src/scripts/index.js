@@ -7,6 +7,11 @@ const editProfilePopup = document.querySelector('.popup_type-profile');
 const addPostPopup = document.querySelector('.popup_type-new-post');
 const photoPopup = document.querySelector('.popup_type-photo');
 
+//получаем контейнер под всплывающее фото
+const imgContainer = photoPopup.querySelector('.img-container');
+const popupImg = imgContainer.querySelector('.popup__shown-photo');
+const popupImgCaption = imgContainer.querySelector('.popup__shown-photo-figcaption');
+
 //Получаем формы
 const editProfileForm = document.forms['profile-info'];
 const addPostForm = document.forms['add-post'];
@@ -60,66 +65,25 @@ const initialCards = [
 
 
 function openPopup (popup) {
-  popup.classList.remove('popup_closed');
   popup.classList.add('popup_opened');
-  popup.style.display = "";
 }
 
-function closePopup() {
-  this.classList.add('popup_closed');
-  /*В прошлом ревью строки ниже указали удалить, с комментарием:
-
-  /*
-  <<Этого больше не будет, все делает popup_opened
-  По заданию нужно сделать плавное открытие и закрытие попапов.
-  Это указано в самом низу задания.
-  Там есть даже ссылка на форум, где показано, как это сделать через visibility, opacity и  transition: visibility 0.2s, opacity 0.2s ease-in;
-  в классе popup и модификаторе popup_opened.
-  А display: flex мешает плавно закрывать попапы.
-  Это должно быть только в popup>> */
-
-  /*
-  Я это оставила потому что не уверена, что при ревью убедились в работоспособности данного способа.
-  также, я увеличила длительность анимации в css, чтобы можно было воочию убедиться
-  если использование дополнительного класса для закрытия поп-апа - зло, прошу более развернутый комментарий
-  на мой взгляд это дполнительно удобно, потому что в index.html такой поп-ап будет дополнительно помечен классом как закрытый на текущий момент
-  */
-
-
-  addEventListener('animationend', () => {
-    this.style.display = "none";
-    if (this.querySelector('.center-container').querySelector('.popup__shown-photo'))
-    {
-      this.querySelector('.center-container').removeChild(this.querySelector('.img-container'));
-    }
-  }, {once: true});
-  this.classList.remove('popup_opened');
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 }
 
-function openImage(popup) {
+function openImage(name, link) {
+  openPopup(photoPopup);
+
+  popupImg.src = link;
+  popupImg.alt = name;
+  popupImgCaption.textContent = name;
+}
+
+
+function openForm (form, popup) {
   openPopup(popup);
-  const viewContainer = popup.querySelector('.center-container');
-  const imgContainer = document.createElement('figure');
-
-  const img = new Image();
-  const imgExistingHeading = this.closest('.posts-gallery__item').querySelector('.posts-gallery__item-heading');
-  const imgFigCaption= document.createElement('figcaption');
-
-  img.src = this.src;
-  imgFigCaption.textContent = imgExistingHeading.textContent;
-
-  imgContainer.classList.add('img-container');
-  img.classList.add('popup__shown-photo');
-  imgFigCaption.classList.add('popup__shown-photo-figcaption');
-  imgContainer.append(img, imgFigCaption);
-  viewContainer.append(imgContainer);
-
-}
-
-
-function openForm (popup) {
-  openPopup(popup);
-  if (this.name === 'profile-info') {
+  if (form.name === 'profile-info') {
     //Заполняем поля формы профиля текущими данными пользователя
     nameInput.value = profileName.textContent;
     signatureInput.value = profileSignature.textContent;
@@ -133,7 +97,7 @@ function saveProfile(evt) {
   profileName.textContent = nameInput.value;
   profileSignature.textContent = signatureInput.value;
 
-  closePopup.call(editProfilePopup);
+  closePopup(editProfilePopup);
 }
 
 function saveNewPost(evt) {
@@ -147,7 +111,7 @@ function saveNewPost(evt) {
 
   evt.target.reset();
 
-  closePopup.call(addPostPopup);
+  closePopup(addPostPopup);
 }
 
 
@@ -164,7 +128,7 @@ function createCard (name, link) {
     evt.target.classList.toggle('posts-gallery__like-button_active');
   });
   cardElement.querySelector('.posts-gallery__delete-button').addEventListener('click', deletePost);
-  postPhoto.addEventListener('click', openImage.bind(postPhoto, photoPopup));
+  postPhoto.addEventListener('click', () => openImage(name, link));
   return cardElement;
 }
 
@@ -182,17 +146,17 @@ function createSomeTemplatePosts (postsArray) {
 }
 
 function deletePost (evt) {
-  evt.target.parentElement.remove();
+  evt.target.closest('.posts-gallery__item').remove();
 }
 
 
 
-editProfileButton.addEventListener('click', openForm.bind(editProfileForm, editProfilePopup));
-addPostButton.addEventListener('click', openForm.bind(addPostForm, addPostPopup));
+editProfileButton.addEventListener('click', () => openForm(editProfileForm, editProfilePopup));
+addPostButton.addEventListener('click', () => openForm(addPostForm, addPostPopup));
 
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
-  button.addEventListener('click', closePopup.bind(popup));
+  button.addEventListener('click', () => closePopup(popup));
 });
 
 

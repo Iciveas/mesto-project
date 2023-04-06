@@ -1,16 +1,4 @@
 .popup_opened {
-  display: flex;
-  animation: opening forwards .8s;
-}
-
-@keyframes opening {
-  from {
-    display: none;
-    opacity: 0;
-  }
-
-  to {
-    display: flex;
-    opacity: 1;
-  }
+  opacity: 1;
+  visibility: visible;
 }
